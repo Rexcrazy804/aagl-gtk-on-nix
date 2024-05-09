@@ -37,10 +37,18 @@ let
         libunwind
       ] ++ (with gst_all_1; [
         # Needed for HSR cutscenes.
-        gst-libav
+        gstreamer
+
+        # Common plugins like "filesrc" to combine within e.g. gst-launch
         gst-plugins-base
-        gst-plugins-bad
+        # Specialized plugins separated by quality
         gst-plugins-good
+        gst-plugins-bad
+        gst-plugins-ugly
+        # Plugins to reuse ffmpeg to play almost every video format
+        gst-libav
+        # Support the Video Audio (Hardware) Acceleration API
+        gst-vaapi
       ]);
       extraProfile = ''
         export PATH=${fakePkExec}/bin:$PATH
