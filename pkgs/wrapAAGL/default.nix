@@ -52,6 +52,7 @@ let
       ]);
       extraProfile = ''
         export PATH=${fakePkExec}/bin:$PATH
+        export GST_PLUGIN_SYSTEM_PATH=$GST_PLUGIN_SYSTEM_PATH_1_0
       '';
   }).passthru.run;
 
